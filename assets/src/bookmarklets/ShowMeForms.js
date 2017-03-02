@@ -13,7 +13,7 @@
             f.style.boxShadow = ' 0 0 15px 4px #1BA5E0';
             var e = document.createElement('input');
             e.setAttribute('type', 'hidden');
-            e.setAttribute('name', '*action');
+            e.setAttribute('name', 'Original-form-action');
             e.setAttribute('value', f.getAttribute('data-prev-action'));
             f.appendChild(e);
         } else {

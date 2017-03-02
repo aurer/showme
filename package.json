@@ -1,0 +1,16 @@
+{
+  "name": "showme",
+  "version": "2.0.0",
+  "description": "Desiplays request variables",
+  "main": "index.php",
+  "repository": "https://github.com/aurer/showme.git",
+  "author": "Phil Maurer <philmau@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.3.0",
+    "gulp-plumber": "^1.1.0"
+  }
+}
