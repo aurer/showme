@@ -12,22 +12,23 @@ $parameters = $requests->getAll();
 	<div class="page">
 		<?php if( count($parameters) > 0): ?>
 			<table cellpadding="0" cellspacing="0">
-				<thead>
-					<th>Name</th>
-					<th>Value</th>
-				</thead>
 				<tbody>
 					<?php	foreach($parameters as $param): ?>
 						<tr>
-							<td class="name">
+							<th class="name">
 								<?=$param->name?>
 								<small><?=$param->type?></small>
-							</td>
-							<td class="value">
+							</th>
+							<td class="value type-<?=$param->type?>">
 								<?php if (is_array($param->value)) : ?>
-									<?php foreach($param->value as $key => $val) : ?>
-										<?= $key ?> = <?= $val  ?>
-									<?php endforeach ?>
+									<table>
+										<?php foreach($param->value as $key => $val) : ?>
+											<tr>
+												<th><?= $key ?></th>
+												<td><?= $val  ?></td>
+											</tr>
+										<?php endforeach ?>
+									</table>
 								<?php else : ?>
 									<?= $param->value ?>
 								<?php endif ?>
