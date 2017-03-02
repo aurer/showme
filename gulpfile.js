@@ -30,12 +30,13 @@ gulp.task('bookmarklets', function() {
 // Watch for changes
 gulp.task('watch', function() {
 	gulp.watch(`${src}/less/**/*.less`, ['less']);
+	gulp.watch(`${src}/bookmarklets/*.js`, ['bookmarklets']);
 });
 
 // Setup local server with injection
 gulp.task('serve', function() {
 	server.init({
-		proxy: 'localhost:8000',
+		proxy: 'localhost:4000',
 		notify: false
 	});
 });

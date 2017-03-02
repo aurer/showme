@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 class Requests {
-	private static $requests = [];
+	private $requests = [];
 
 	// Return all request parameters of get, post and file types
 	public function getAll() {
@@ -9,15 +9,13 @@ class Requests {
 		$this->parseParams('post', $_POST);
 		$this->parseParams('file', $_FILES);
 
-		if ($requests) {
-			// Sort by parameter name
-			usort($this->requests, function($a, $b){
-				return $a->name > $b->name;
-			});
+		// Sort by parameter name
+		usort($this->requests, function($a, $b){
+			return $a->name > $b->name;
+		});
 
-			// Remove empty items
-			$this->requests = array_filter($this->requests);
-		}
+		// Remove empty items
+		$this->requests = array_filter($this->requests);
 
 		return $this->requests;
 	}
@@ -38,9 +36,11 @@ class Requests {
 	private function parseFileValue($value) {
 		$values = [];
 		foreach ($value as $key => $val) {
-			if (!in_array($key, ['error', 'tmp_name'])) {
-				$values[$key] = $this->parseValue($val);
+			if (in_array($key, ['error', 'tmp_name'])) {
+				// continue;
 			}
+
+			$values[$key] = $this->parseValue($val);
 		}
 		return $values;
 	}

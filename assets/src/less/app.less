@@ -1,55 +1,156 @@
 @import 'config';
 
+* { box-sizing: border-box }
+
+html,
 body {
-	font-family: "Helvetica Neue", "Helvetica", sans-serif;
-	background-color: #f5f5f5;
-	color: #373F51;
+	height: 100%;
+	line-height: 1.4;
+}
+
+body {
+	font-family: "Ubuntu", sans-serif;
+	background-color: @color-primary-lighter;
+	color: @color-primary;
 	padding: 1em;
+}
+
+a {
+	color: @color-secondary;
+	text-decoration: none;
+	transition: color .2s;
+
+	&:hover, &:focus {
+		color: lighten(@color-secondary, 20%);
+	}
+}
+
+.intro {
+	// height: 100%;
+	width: 40em;
+	margin: auto;
+	position: relative;
+	top: 40%;
+	transform: translateY(-50%);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: @color-primary-lightest;
+
+	h1 {
+		font-size: 2.5em;
+		margin: 0 0 .8rem;
+		color: @color-secondary-light;
+	}
+
+	p {
+		margin: 0 0 1rem;
+	}
+}
+
+.main {
+	width: 100%;
+	max-width: 80em;
+	margin: auto;
+	background-color: @color-primary-dark;
+	color: @color-primary-lightest;
+	box-shadow: 0 17px 35px -10px fade(@color-primary-darker, 50%);
+	border-radius: 4px;
+
+	header {
+		padding: 1rem 2rem;
+		background-color: @color-secondary;
+		color: @color-primary-dark;
+		border-radius: 4px 4px 0 0;
+		font-size: .9rem;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+
+		h1 {
+			margin: 0;
+			font-size: 1.4rem;
+			flex: 1;
+			font-weight: normal;
+		}
+
+		.referer {
+			color: @color-primary-dark;
+
+			b {
+				color: @color-secondary-dark;
+				opacity: .7;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	main {
+		padding: 2rem 2rem .5rem;
+	}
+
+	footer {
+		font-size: .8em;
+		padding: 0 2rem .5rem;
+		text-align: right;
+
+		a {
+			color: @color-primary-lighter;
+
+			&:hover {
+				color: @color-primary-lightest;
+			}
+		}
+
+	}
 }
 
 table {
 	border-collapse: collapse;
 	width: 100%;
-	max-width: 80em;
-	margin: auto;
-	background-color: #fff;
-	box-shadow: 0 1px 20px fade(#000, 10%);
+	font-family: "Inconsolata", monospace;
 }
 
-th, td {
-	padding: .5em 1em;
-	border: 1px solid #eee;
-	text-align: left;
-	vertical-align: top;
-}
+tbody {
+	th, td {
+		padding: .5rem 1rem;
+		border: 1px solid @color-primary-light;
+		text-align: left;
+		vertical-align: top;
+	}
 
-th {
-	width: 20%;
-	font-weight: normal;
-	position: relative;	
-	padding-right: 4em;
+	th {
+		width: 30%;
+		font-weight: normal;
+		position: relative;
+		padding-right: 4rem;
+		background-color: @color-primary;
 
-	small {
-		position: absolute;
-		right: 1em;
-		width: 4em;
-		text-align: right;
-		color: fade(#000, 30%);
+		small {
+			position: absolute;
+			top: .8em;
+			right: 1em;
+			width: 4em;
+			text-align: right;
+			color: @color-primary-lighter;
+		}
 	}
 }
 
 td {
-	font-weight: bold;
-	
-	&.type-file {
+
+	&.type-multi {
 		padding: 0;
 	}
 
 	table {
 		box-shadow: none;
+		border-style: hidden;
 
 		th {
 			width: 20%;
+			background-color: transparent;
 		}
 	}
 }
