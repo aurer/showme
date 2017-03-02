@@ -23,7 +23,15 @@ $parameters = $requests->getAll();
 								<?=$param->name?>
 								<small><?=$param->type?></small>
 							</td>
-							<td class="value"></td>
+							<td class="value">
+								<?php if (is_array($param->value)) : ?>
+									<?php foreach($param->value as $key => $val) : ?>
+										<?= $key ?> = <?= $val  ?>
+									<?php endforeach ?>
+								<?php else : ?>
+									<?= $param->value ?>
+								<?php endif ?>
+							</td>
 						</tr>
 					<?php	endforeach ?>
 				</tbody>

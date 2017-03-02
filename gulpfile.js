@@ -1,6 +1,8 @@
 var server = require('browser-sync');
 var gulp = require('gulp');
 var less = require('gulp-less');
+var uglify = require('gulp-uglify');
+var insert = require('gulp-insert');
 var plumber = require('gulp-plumber');
 var del = require('del');
 var fs = require('fs');
@@ -10,17 +12,19 @@ var dist = './assets/dist';
 
 // Compile less
 gulp.task('less', function() {
-	gulp.src(['docs/src/less/docs.less'])
-		.pipe(plumber())
-		.pipe(less())
-		.pipe(gulp.dest('docs/dist/css'))
-		.pipe(server.stream());
-
 	gulp.src([`${src}/less/*.less`])
 		.pipe(plumber())
 		.pipe(less())
 		.pipe(gulp.dest(`${dist}/css`))
 		.pipe(server.stream());
+});
+
+gulp.task('bookmarklets', function() {
+	gulp.src([`${src}/bookmarklets/*`])
+		.pipe(uglify())
+		.pipe(insert.prepend('javascript:(function(){'))
+		.pipe(insert.append('})();'))
+		.pipe(gulp.dest(`${dist}/bookmarklets`));
 });
 
 // Watch for changes
