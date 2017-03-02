@@ -7,7 +7,7 @@ class Requests {
 	public function getAll() {
 		$this->parseParams('get', $_GET);
 		$this->parseParams('post', $_POST);
-		$this->parseParams('post', $_FILES);
+		$this->parseParams('file', $_FILES);
 
 		if ($requests) {
 			// Sort by parameter name
@@ -35,13 +35,27 @@ class Requests {
 		}
 	}
 
+	private function parseFileValue($value) {
+		$values = [];
+		foreach ($value as $key => $val) {
+			if (!in_array($key, ['error', 'tmp_name'])) {
+				$values[$key] = $this->parseValue($val);
+			}
+		}
+		return $values;
+	}
+
 	// Parse request parameters of specified type
 	private function parseParams($type, $params) {
 		foreach($params as $name => $value) {
 			$request = new stdClass();
 			$request->type = $type;
 			$request->name = htmlspecialchars($name);
-			$request->value = $this->parseValue($value);
+			if ($type == 'file') {
+				$request->value = $this->parseFileValue($value);
+			} else {
+				$request->value = $this->parseValue($value);
+			}
 			$this->requests[] = $request;
 		}
 	}
