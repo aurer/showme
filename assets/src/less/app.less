@@ -2,4 +2,54 @@
 
 body {
 	font-family: "Helvetica Neue", "Helvetica", sans-serif;
+	background-color: #f5f5f5;
+	color: #373F51;
+	padding: 1em;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 80em;
+	margin: auto;
+	background-color: #fff;
+	box-shadow: 0 1px 20px fade(#000, 10%);
+}
+
+th, td {
+	padding: .5em 1em;
+	border: 1px solid #eee;
+	text-align: left;
+	vertical-align: top;
+}
+
+th {
+	width: 20%;
+	font-weight: normal;
+	position: relative;	
+	padding-right: 4em;
+
+	small {
+		position: absolute;
+		right: 1em;
+		width: 4em;
+		text-align: right;
+		color: fade(#000, 30%);
+	}
+}
+
+td {
+	font-weight: bold;
+	
+	&.type-file {
+		padding: 0;
+	}
+
+	table {
+		box-shadow: none;
+
+		th {
+			width: 20%;
+		}
+	}
 }
