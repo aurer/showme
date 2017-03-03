@@ -63,7 +63,7 @@ $parameters = $requests->getAll();
 		<section class="intro">
 			<h1>Showme</h1>
 			<p>Send a POST or <a href="?Something=Like+this...">GET</a> request here to inspect it's values.</p>
-			<p><a href="https://github.com/aurer/showme/assets/dist/bookmarklets/" target="_blank">These bookmarklets</a> might help.</p>
+			<p><a href="https://github.com/aurer/showme/tree/master/assets/dist/bookmarklets" target="_blank">These bookmarklets</a> might help.</p>
 		</section>
 	<?php endif ?>
 </body>
