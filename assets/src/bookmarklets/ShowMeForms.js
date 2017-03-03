@@ -8,7 +8,7 @@ function make(f) {
 		var param = f.action.split('?')[1];
 		console.log(param);
 		f.setAttribute('data-prev-action', f.action);
-		f.action='http://localhost:4000' + (param ? '?' + param : '');
+		f.action='http://showme.aurer.co.uk' + (param ? '?' + param : '');
 		f.target = '_blank';
 		f.style.border = '2px solid #1BA5E0';
 		f.style.boxShadow = ' 0 0 15px 4px #1BA5E0';
