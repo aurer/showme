@@ -1,30 +1,32 @@
 var forms = document.querySelectorAll('form');
 for (i = 0; i < forms.length; i++) {
 	make(forms[i]);
-}
+};
 
 function make(f) {
 	if (f.getAttribute('data-prev-action') == null) {
-		f.setAttribute('data-prev-action', f.getAttribute('action'));
-		f.setAttribute('action', 'http://showme.aurer.co.uk');
+		var param = f.action.split('?')[1];
+		console.log(param);
+		f.setAttribute('data-prev-action', f.action);
+		f.action='http://localhost:4000' + (param ? '?' + param : '');
 		f.target = '_blank';
-		f.style.outline = '3px solid #1BA5E0';
+		f.style.border = '2px solid #1BA5E0';
 		f.style.boxShadow = ' 0 0 15px 4px #1BA5E0';
 		var e = document.createElement('input');
-		e.setAttribute('type', 'hidden');
-		e.setAttribute('name', 'form-action');
-		e.setAttribute('value', f.getAttribute('data-prev-action'));
+		e.type = 'hidden';
+		e.name = 'form-action';
+		e.value = f.getAttribute('data-prev-action');
 		f.appendChild(e);
 	} else {
 		unmake(f);
 	}
-}
+};
 
 function unmake(f) {
-	f.setAttribute('action', f.getAttribute('data-prev-action'));
+	f.action = f.getAttribute('data-prev-action');
 	f.removeAttribute('data-prev-action');
 	f.removeAttribute('target');
 	f.style.outline = 'none';
 	f.style.boxShadow = 'none';
 	document.querySelector('input[name="*action"]').remove();
-}
+};
