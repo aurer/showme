@@ -10,7 +10,12 @@ body {
   font-family: "Ubuntu", sans-serif;
   background-color: #374c68;
   color: #203651;
-  padding: 1em;
+  padding: 1rem;
+}
+@media screen and (max-width: 30em) {
+  body {
+    padding: .5rem;
+  }
 }
 a {
   color: #00a2fd;
@@ -60,6 +65,11 @@ a:focus {
   flex-flow: row wrap;
   align-items: center;
 }
+@media screen and (max-width: 30em) {
+  .main header {
+    padding: .5rem 1rem;
+  }
+}
 .main header h1 {
   margin: 0;
   font-size: 1.4rem;
@@ -77,13 +87,19 @@ a:focus {
 .main main {
   padding: 2rem 2rem .5rem;
 }
+@media screen and (max-width: 30em) {
+  .main main {
+    padding: 1rem 1rem .5rem;
+  }
+}
 .main footer {
   font-size: .8em;
   padding: 0 2rem .5rem;
   text-align: right;
+  color: #374c68;
 }
 .main footer a {
-  color: #374c68;
+  color: currentColor;
 }
 .main footer a:hover {
   color: #88a3c5;
@@ -93,6 +109,17 @@ table {
   width: 100%;
   font-family: "Inconsolata", monospace;
 }
+thead th {
+  text-align: left;
+  padding: .3rem 1rem;
+  border: 1px solid #2b4467;
+  color: #4d75a8;
+}
+@media screen and (max-width: 30em) {
+  thead {
+    display: none;
+  }
+}
 tbody th,
 tbody td {
   padding: .5rem 1rem;
@@ -100,12 +127,25 @@ tbody td {
   text-align: left;
   vertical-align: top;
 }
+@media screen and (max-width: 30em) {
+  tbody th,
+  tbody td {
+    padding: .3rem .5rem;
+    font-size: .9em;
+    display: block;
+  }
+}
 tbody th {
   width: 30%;
   font-weight: normal;
   position: relative;
   padding-right: 4rem;
   background-color: #203651;
+}
+@media screen and (max-width: 30em) {
+  tbody th {
+    width: 100%;
+  }
 }
 tbody th small {
   position: absolute;
@@ -115,14 +155,32 @@ tbody th small {
   text-align: right;
   color: #374c68;
 }
-td.type-multi {
+@media screen and (max-width: 30em) {
+  tbody td {
+    border-top: none;
+    margin-bottom: .5rem;
+  }
+}
+tbody td.type-multi {
   padding: 0;
 }
-td table {
+tbody td table {
   box-shadow: none;
   border-style: hidden;
 }
-td table th {
+@media screen and (max-width: 30em) {
+  tbody td table th,
+  tbody td table td {
+    display: table-cell;
+  }
+}
+tbody td table th {
   width: 20%;
   background-color: transparent;
+}
+@media screen and (max-width: 30em) {
+  tbody td table th {
+    width: auto;
+    max-width: 50%;
+  }
 }

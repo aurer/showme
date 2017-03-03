@@ -6,6 +6,7 @@ $parameters = $requests->getAll();
 <!doctype html>
 <html>
 <head><title>Show me</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu|Inconsolata" rel="stylesheet">
 <link rel="stylesheet" href="/assets/dist/css/app.css">
 </head>
@@ -24,9 +25,8 @@ $parameters = $requests->getAll();
 				<table cellpadding="0" cellspacing="0">
 					<thead>
 						<tr>
-							<td colspan="2">
-
-							</td>
+							<th>Name</th>
+							<th>Value</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -56,7 +56,9 @@ $parameters = $requests->getAll();
 				</table>
 			</main>
 			<footer>
-				<a href="https://github.com/aurer" target="_blank">&copy;aurer <?= date("Y") ?></a>
+				<a href="http://aurer.co.uk" target="_blank">&copy;aurer <?= date("Y") ?></a>
+				&nbsp;&bullet;&nbsp;
+				<a href="https://github.com/aurer/showme" target="_blank">Github</a>
 			</footer>
 		</section>
 	<?php else: ?>

@@ -12,7 +12,11 @@ body {
 	font-family: "Ubuntu", sans-serif;
 	background-color: @color-primary-lighter;
 	color: @color-primary;
-	padding: 1em;
+	padding: 1rem;
+
+	@media @mq-sm {
+		padding: .5rem;
+	}
 }
 
 a {
@@ -68,6 +72,10 @@ a {
 		flex-flow: row wrap;
 		align-items: center;
 
+		@media @mq-sm {
+			padding: .5rem 1rem;
+		}
+
 		h1 {
 			margin: 0;
 			font-size: 1.4rem;
@@ -88,15 +96,20 @@ a {
 
 	main {
 		padding: 2rem 2rem .5rem;
+
+		@media @mq-sm {
+			padding: 1rem 1rem .5rem;
+		}
 	}
 
 	footer {
 		font-size: .8em;
 		padding: 0 2rem .5rem;
 		text-align: right;
+		color: @color-primary-lighter;
 
 		a {
-			color: @color-primary-lighter;
+			color: currentColor;
 
 			&:hover {
 				color: @color-primary-lightest;
@@ -112,12 +125,31 @@ table {
 	font-family: "Inconsolata", monospace;
 }
 
+thead {
+	th {
+		text-align: left;
+		padding: .3rem 1rem;
+		border: 1px solid @color-primary-light;
+		color: tint(@color-primary-lightest, -50%);
+	}
+
+	@media @mq-sm {
+		display: none;
+	}
+}
+
 tbody {
 	th, td {
 		padding: .5rem 1rem;
 		border: 1px solid @color-primary-light;
 		text-align: left;
 		vertical-align: top;
+
+		@media @mq-sm {
+			padding: .3rem .5rem;
+			font-size: .9em;
+			display: block;
+		}
 	}
 
 	th {
@@ -126,6 +158,10 @@ tbody {
 		position: relative;
 		padding-right: 4rem;
 		background-color: @color-primary;
+
+		@media @mq-sm {
+			width: 100%;
+		}
 
 		small {
 			position: absolute;
@@ -136,21 +172,37 @@ tbody {
 			color: @color-primary-lighter;
 		}
 	}
-}
 
-td {
+	td {
+		@media @mq-sm {
+			border-top: none;
+			margin-bottom: .5rem;
+		}
 
-	&.type-multi {
-		padding: 0;
-	}
+		&.type-multi {
+			padding: 0;
+		}
 
-	table {
-		box-shadow: none;
-		border-style: hidden;
+		table {
+			box-shadow: none;
+			border-style: hidden;
 
-		th {
-			width: 20%;
-			background-color: transparent;
+			@media @mq-sm {
+				th, td {
+					display: table-cell;
+				}
+			}
+
+			th {
+				width: 20%;
+				background-color: transparent;
+
+				@media @mq-sm {
+					width: auto;
+					max-width: 50%;
+				}
+			}
 		}
 	}
 }
+
