@@ -46,6 +46,6 @@ gulp.task('clean', function() {
 	return del(`${dist}/*`);
 });
 
-gulp.task('default', ['clean', 'less']);
+gulp.task('default', ['clean', 'less', 'bookmarklets']);
 
 gulp.task('dev', ['default', 'watch', 'serve']);

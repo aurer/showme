@@ -56,7 +56,7 @@ $parameters = $requests->getAll();
 				</table>
 			</main>
 			<footer>
-				<a href="http://aurer.co.uk" target="_blank">&copy;aurer <?= date("Y") ?></a>
+				<a href="https://aurer.co.uk" target="_blank">&copy;aurer <?= date("Y") ?></a>
 				&nbsp;&bullet;&nbsp;
 				<a href="https://github.com/aurer/showme" target="_blank">Github</a>
 			</footer>
