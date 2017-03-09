@@ -21,6 +21,7 @@ gulp.task('less', function() {
 
 gulp.task('bookmarklets', function() {
 	gulp.src([`${src}/bookmarklets/*`])
+		.pipe(plumber())
 		.pipe(uglify())
 		.pipe(insert.prepend('javascript:(function(){'))
 		.pipe(insert.append('})();'))
