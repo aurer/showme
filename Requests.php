@@ -12,7 +12,6 @@ class Requests {
 
 	// Return all request parameters of get, post and file types
 	public function getAll() {
-
 		// Sort by parameter name
 		usort($this->requests, function($a, $b){
 			return $a->name > $b->name;

@@ -18,7 +18,7 @@ $action = $requests->getAction();
 				<h1>Showme</h1>
 				<?php if (isset($_SERVER['HTTP_REFERER'])): ?>
 					<div class="referer">
-						<b>Referer:</b> <?= $_SERVER['HTTP_REFERER'] ?>
+						<b>Referer:</b> <span><?= $_SERVER['HTTP_REFERER'] ?></span>
 					</div>
 				<?php endif ?>
 			</header>
@@ -58,7 +58,7 @@ $action = $requests->getAction();
 						<tfoot>
 							<tr>
 								<td>Form action</td>
-								<td><?= $action ?></td>
+								<td><a target="_blank" href="<?= $action ?>"><?= $action ?></a></td>
 							</tr>
 						</tfoot>
 					<?php endif ?>
