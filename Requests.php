@@ -51,7 +51,7 @@ class Requests {
 		$values = [];
 		foreach ($value as $key => $val) {
 			if (in_array($key, ['error', 'tmp_name'])) {
-				// continue;
+				continue;
 			}
 
 			$values[$key] = $this->parseValue($val);

@@ -5,16 +5,15 @@ for (i = 0; i < forms.length; i++) {
 
 function make(f) {
 	if (f.getAttribute('data-prev-action') == null) {
-		var param = f.action.split('?')[1];
-		console.log(param);
+		var querystring = f.getAttribute('action').split('?')[1];
 		f.setAttribute('data-prev-action', f.action);
-		f.action='https://showme.aurer.co.uk' + (param ? '?' + param : '');
+		f.action='https://showme.aurer.co.uk' + (querystring ? '?' + querystring : '');
 		f.target = '_blank';
-		f.style.border = '2px solid #1BA5E0';
+		f.style.outline = '1px solid #75d5ff';
 		f.style.boxShadow = ' 0 0 15px 4px #1BA5E0';
 		var e = document.createElement('input');
 		e.type = 'hidden';
-		e.name = 'form-action';
+		e.name = 'formSubmitsTo';
 		e.value = f.getAttribute('data-prev-action');
 		f.appendChild(e);
 	} else {
@@ -28,5 +27,5 @@ function unmake(f) {
 	f.removeAttribute('target');
 	f.style.outline = 'none';
 	f.style.boxShadow = 'none';
-	document.querySelector('input[name="*action"]').remove();
+	f.querySelector('input[name="formSubmitsTo"]').remove;
 };
