@@ -2,6 +2,7 @@
 require('Requests.php');
 $requests = new Requests;
 $parameters = $requests->getAll();
+$action = $requests->getAction();
 ?>
 <!doctype html>
 <html>
@@ -53,12 +54,14 @@ $parameters = $requests->getAll();
 							</tr>
 						<?php	endforeach ?>
 					</tbody>
-					<tfoot>
-						<tr>
-							<td>Form action</td>
-							<td><?= $requests->getAction() ?></td>
-						</tr>
-					</tfoot>
+					<?php if (!empty($action)) : ?>
+						<tfoot>
+							<tr>
+								<td>Form action</td>
+								<td><?= $action ?></td>
+							</tr>
+						</tfoot>
+					<?php endif ?>
 				</table>
 			</main>
 			<footer>
