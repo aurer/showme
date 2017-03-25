@@ -53,6 +53,12 @@ $parameters = $requests->getAll();
 							</tr>
 						<?php	endforeach ?>
 					</tbody>
+					<tfoot>
+						<tr>
+							<td>Form action</td>
+							<td><?= $requests->getAction() ?></td>
+						</tr>
+					</tfoot>
 				</table>
 			</main>
 			<footer>

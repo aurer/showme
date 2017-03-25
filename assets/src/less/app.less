@@ -30,7 +30,6 @@ a {
 }
 
 .intro {
-	// height: 100%;
 	width: 40em;
 	margin: auto;
 	position: relative;
@@ -125,18 +124,20 @@ table {
 	font-family: "Inconsolata", monospace;
 }
 
-thead {
-	th {
+thead,
+tfoot {
+	th, td {
 		text-align: left;
 		padding: .3rem 1rem;
 		border: 1px solid @color-primary-light;
-		color: tint(@color-primary-lightest, -50%);
+		color: darken(@color-primary-lightest, 25%);
 	}
 
 	@media @mq-sm {
 		display: none;
 	}
 }
+
 
 tbody {
 	th, td {
@@ -174,9 +175,11 @@ tbody {
 	}
 
 	td {
+		min-height: 2em;
+
 		@media @mq-sm {
 			border-top: none;
-			margin-bottom: .5rem;
+			margin-bottom: 1rem;
 		}
 
 		&.type-multi {
@@ -205,4 +208,3 @@ tbody {
 		}
 	}
 }
-

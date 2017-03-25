@@ -2,22 +2,36 @@
 
 class Requests {
 	private $requests = [];
+	public $formSubmitsTo = "";
 
-	// Return all request parameters of get, post and file types
-	public function getAll() {
+	public function __construct() {
 		$this->parseParams('get', $_GET);
 		$this->parseParams('post', $_POST);
 		$this->parseParams('file', $_FILES);
+	}
+
+	// Return all request parameters of get, post and file types
+	public function getAll() {
 
 		// Sort by parameter name
 		usort($this->requests, function($a, $b){
 			return $a->name > $b->name;
 		});
 
-		// Remove empty items
-		$this->requests = array_filter($this->requests);
+		$requests = array_filter($this->requests, function($req){
+			return ($req->name != 'formSubmitsTo') && $req->name != '';
+		});
 
-		return $this->requests;
+		return $requests;
+	}
+
+	public function getAction() {
+		return array_reduce($this->requests, function($carry, $item){
+			if ($item->name == 'formSubmitsTo' && is_string($item->value)) {
+				$carry = $item->value;
+			}
+			return $carry;
+		});
 	}
 
 	// Escape and manage values

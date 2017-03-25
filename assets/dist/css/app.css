@@ -109,14 +109,18 @@ table {
   width: 100%;
   font-family: "Inconsolata", monospace;
 }
-thead th {
+thead th,
+tfoot th,
+thead td,
+tfoot td {
   text-align: left;
   padding: .3rem 1rem;
   border: 1px solid #2b4467;
-  color: #4d75a8;
+  color: #43638a;
 }
 @media screen and (max-width: 30em) {
-  thead {
+  thead,
+  tfoot {
     display: none;
   }
 }
@@ -155,10 +159,13 @@ tbody th small {
   text-align: right;
   color: #374c68;
 }
+tbody td {
+  min-height: 2em;
+}
 @media screen and (max-width: 30em) {
   tbody td {
     border-top: none;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
   }
 }
 tbody td.type-multi {
