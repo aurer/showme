@@ -16,9 +16,9 @@ $action = $requests->getAction();
 		<section class="main">
 			<header>
 				<h1>Showme</h1>
-				<?php if (isset($_SERVER['HTTP_REFERER'])): ?>
+				<?php if ($requests->referer): ?>
 					<div class="referer">
-						<b>Referer:</b> <span><?= $_SERVER['HTTP_REFERER'] ?></span>
+						<b>Referer:</b> <span><?= $requests->referer ?></span>
 					</div>
 				<?php endif ?>
 			</header>
@@ -48,7 +48,7 @@ $action = $requests->getAction();
 											<?php endforeach ?>
 										</table>
 									<?php else : ?>
-										<?= $param->value ?>
+										<?= ''/*$param->value*/ ?>
 									<?php endif ?>
 								</td>
 							</tr>
@@ -65,6 +65,10 @@ $action = $requests->getAction();
 				</table>
 			</main>
 			<footer>
+				<?php if(!$requests->isCache()): ?>
+					<a href="/<?php echo $requests->save() ?>">Share</a>
+					&nbsp;&bullet;&nbsp;
+				<?php endif ?>
 				<a href="https://aurer.co.uk" target="_blank">&copy;aurer <?= date("Y") ?></a>
 				&nbsp;&bullet;&nbsp;
 				<a href="https://github.com/aurer/showme" target="_blank">Github</a>
