@@ -12,13 +12,13 @@ $action = $requests->getAction();
 <link rel="stylesheet" href="/assets/dist/css/app.css">
 </head>
 <body>
-	<?php if( count($parameters) > 0): ?>
+	<?php if (count($parameters) > 0): ?>
 		<section class="main">
 			<header>
 				<h1>Showme</h1>
-				<?php if ($requests->referer): ?>
+				<?php if ($requests->getReferer()): ?>
 					<div class="referer">
-						<b>Referer:</b> <span><?= $requests->referer ?></span>
+						<b>Referer:</b> <span><?= $requests->getReferer() ?></span>
 					</div>
 				<?php endif ?>
 			</header>
@@ -65,8 +65,8 @@ $action = $requests->getAction();
 				</table>
 			</main>
 			<footer>
-				<?php if(!$requests->isCache()): ?>
-					<a href="/<?php echo $requests->save() ?>">Share</a>
+				<?php if (!$requests->isCache()): ?>
+					<a href="/<?= $requests->save() ?>">Share</a>
 					&nbsp;&bullet;&nbsp;
 				<?php endif ?>
 				<a href="https://aurer.co.uk" target="_blank">&copy;aurer <?= date("Y") ?></a>

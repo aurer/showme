@@ -1,12 +1,13 @@
 <?php
+
 define('DS', DIRECTORY_SEPARATOR);
 
 class Requests {
-	private $requests = [];
 	public $formSubmitsTo;
 	public $cachedRequestAge;
 	public $referer;
 
+	private $requests = [];
 	private $is_cache = false;
 	private $cached_file_dir;
 
@@ -26,20 +27,24 @@ class Requests {
 			return $this->requests = $this->load($args[0]);
 		}
 
+		// Parse request
 		$this->parseParams('get', $_GET);
 		$this->parseParams('post', $_POST);
 		$this->parseParams('file', $_FILES);
+
+		// Tidy up
 		$this->setReferer();
 		$this->clean_saved_files();
 	}
 
-	// Return all request parameters of get, post and file types
+	// Return all request parameters of GET, POST and FILE types
 	public function getAll() {
 		// Sort by parameter name
 		usort($this->requests, function($a, $b){
 			return $a->name > $b->name;
 		});
 
+		// Filter out special parameters
 		$requests = array_filter($this->requests, function($req){
 			return ($req->name != 'formSubmitsTo') && $req->name != '';
 		});
@@ -47,6 +52,7 @@ class Requests {
 		return $requests;
 	}
 
+	// Return the original value for the form 'action'
 	public function getAction() {
 		return array_reduce($this->requests, function($carry, $item){
 			if ($item->name == 'formSubmitsTo' && is_string($item->value)) {
@@ -56,14 +62,21 @@ class Requests {
 		});
 	}
 
+	// Is this a cached request
 	public function isCache() {
 		return $this->is_cache;
 	}
 
+	// Set referer as long as request is not for cached request
 	private function setReferer() {
 		if (isset($_SERVER['HTTP_REFERER']) && $this->is_cache === false) {
 			$this->referer = $_SERVER['HTTP_REFERER'];
 		}
+	}
+
+	// Return the referer
+	public function getReferer() {
+		return $this->referer;
 	}
 
 	// Save request into cahched file
@@ -76,7 +89,7 @@ class Requests {
 	}
 
 	// Load a saved request from cached file
-	private function load($hash) {
+	public function load($hash) {
 		$filepath = $this->cached_file_path($hash);
 		if (file_exists($filepath)) {
 			return unserialize(file_get_contents($filepath));
@@ -97,11 +110,12 @@ class Requests {
 		}
 	}
 
+	// Build path to cache file
 	private function cached_file_path($filename) {
 		return $this->cached_file_dir . DS . $filename;
 	}
 
-	// Escape and manage values
+	// Escape and manage key/value pairs taken from request
 	private function parseValue($value) {
 		if (is_array($value)) {
 			$values = [];
@@ -114,6 +128,7 @@ class Requests {
 		}
 	}
 
+	// Extract key/value pairs from a file upload
 	private function parseFileValue($value) {
 		$values = [];
 		foreach ($value as $key => $val) {
@@ -126,7 +141,7 @@ class Requests {
 		return $values;
 	}
 
-	// Parse request parameters of specified type
+	// Extract key/value pairs from GET and POST requests
 	private function parseParams($type, $params) {
 		foreach($params as $name => $value) {
 			$request = new stdClass();
