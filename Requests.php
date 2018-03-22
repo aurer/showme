@@ -12,7 +12,7 @@ class Requests {
 	private $cached_file_dir;
 
 	public function __construct() {
-		// Ensure cach dir exists
+		// Ensure cache dir exists
 		$this->cached_file_dir = sys_get_temp_dir() . DS . 'showme';
 		if (!is_dir($this->cached_file_dir)) {
 			mkdir($this->cached_file_dir);
