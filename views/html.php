@@ -4,6 +4,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Ubuntu|Inconsolata" rel="stylesheet">
 <link rel="stylesheet" href="/assets/dist/css/app.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-31871536-6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-31871536-6');
+</script>
 </head>
 <body>
 	<?php if (count($parameters) > 0): ?>
