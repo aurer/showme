@@ -49,7 +49,7 @@
 											<?php endforeach ?>
 										</table>
 									<?php else : ?>
-										<?= ''/*$param->value*/ ?>
+										<?= $param->value ?>
 									<?php endif ?>
 								</td>
 							</tr>
