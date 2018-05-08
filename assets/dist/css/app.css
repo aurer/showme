@@ -18,13 +18,13 @@ body {
   }
 }
 a {
-  color: #00a2fd;
+  color: #006FFF;
   text-decoration: none;
   transition: color .2s;
 }
 a:hover,
 a:focus {
-  color: #64c7ff;
+  color: #66a9ff;
 }
 .intro {
   width: 40em;
@@ -46,19 +46,22 @@ a:focus {
 .intro p {
   margin: 0 0 1rem;
 }
+.intro a {
+  color: #e3efff;
+}
 .main {
   width: 100%;
   max-width: 80em;
   margin: auto;
-  background-color: #1b324b;
+  background-color: #172431;
   color: #88a3c5;
-  box-shadow: 0 17px 35px -10px rgba(17, 30, 44, 0.5);
+  box-shadow: 0 17px 35px -10px rgba(17, 26, 35, 0.5);
   border-radius: 4px;
 }
 .main header {
   padding: 1rem 2rem;
-  background-color: #00a2fd;
-  color: #1b324b;
+  background-color: #006FFF;
+  color: #fff;
   border-radius: 4px 4px 0 0;
   font-size: .9rem;
   display: flex;
@@ -77,11 +80,11 @@ a:focus {
   font-weight: normal;
 }
 .main header .referer {
-  color: #1b324b;
+  font-family: 'Inconsolata', monospace;
 }
 .main header .referer b {
-  color: #076092;
-  opacity: .7;
+  opacity: .5;
+  font-weight: normal;
   text-transform: uppercase;
 }
 .main main {
@@ -96,7 +99,7 @@ a:focus {
   font-size: .8em;
   padding: 0 2rem .5rem;
   text-align: right;
-  color: #374c68;
+  color: rgba(136, 163, 197, 0.5);
 }
 .main footer a {
   color: currentColor;
@@ -144,7 +147,7 @@ tbody th {
   font-weight: normal;
   position: relative;
   padding-right: 4rem;
-  background-color: #203651;
+  background-color: #1c2e44;
 }
 @media screen and (max-width: 30em) {
   tbody th {
@@ -157,7 +160,7 @@ tbody th small {
   right: 1em;
   width: 4em;
   text-align: right;
-  color: #374c68;
+  color: rgba(136, 163, 197, 0.5);
 }
 tbody td {
   min-height: 2em;
