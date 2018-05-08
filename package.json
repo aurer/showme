@@ -1,7 +1,7 @@
 {
   "name": "showme",
   "version": "2.0.0",
-  "description": "Desiplays request variables",
+  "description": "Displays request variables",
   "main": "index.php",
   "repository": "https://github.com/aurer/showme.git",
   "author": "Phil Maurer <philmau@gmail.com>",
