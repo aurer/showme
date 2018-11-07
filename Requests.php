@@ -28,13 +28,32 @@ class Requests {
 		}
 
 		// Parse request
-		$this->parseParams('get', $_GET);
-		$this->parseParams('post', $_POST);
+		$this->parseParams('get', $this->getRealInput('GET'));
+		$this->parseParams('post', $this->getRealInput('POST'));
 		$this->parseParams('file', $_FILES);
 
 		// Tidy up
 		$this->setReferer();
 		$this->clean_saved_files();
+	}
+
+	private function getRealInput($source) {
+		if ($source === 'GET' && !empty($_SERVER['QUERY_STRING'])) {
+			$pairs = explode("&", $_SERVER['QUERY_STRING']);
+		} elseif ($source === 'POST') {
+			$pairs = explode("&", file_get_contents("php://input"));
+		}	else {
+			return [];
+		}
+
+		$vars = [];
+		foreach ($pairs as $pair) {
+			$nv = explode("=", $pair);
+			$name = urldecode($nv[0]);
+			$value = isset($nv[1]) ? urldecode($nv[1]) : '';
+			$vars[$name] = $value;
+		}
+		return $vars;
 	}
 
 	// Return all request parameters of GET, POST and FILE types
