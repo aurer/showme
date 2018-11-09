@@ -27,14 +27,16 @@ class Requests {
 			return $this->requests = $this->load($args[0]);
 		}
 
-		// Parse request
-		$this->parseParams('get', $this->getRealInput('GET'));
-		$this->parseParams('post', $this->getRealInput('POST'));
-		$this->parseParams('file', $_FILES);
+		var_dump($_SERVER);
 
-		// Tidy up
-		$this->setReferer();
-		$this->clean_saved_files();
+		// Parse request
+		// $this->parseParams('get', $this->getRealInput('GET'));
+		// $this->parseParams('post', $this->getRealInput('POST'));
+		// $this->parseParams('file', $_FILES);
+		//
+		// // Tidy up
+		// $this->setReferer();
+		// $this->clean_saved_files();
 	}
 
 	private function getRealInput($source) {
