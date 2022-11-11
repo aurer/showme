@@ -1,6 +1,6 @@
 # Showme
 
-A service to show get and post variables in an easy to read page. Showme never stores any data, it just displays it.
+A service to show get and post variables in an easy to read page.
 
 ## Bookmarklets
 

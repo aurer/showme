@@ -1,0 +1,10 @@
+version: '2.9'
+
+services:
+  database:
+    container_name: showme-db
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_PASSWORD: supersecret
+    ports:
+      - 5432:5432

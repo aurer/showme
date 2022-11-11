@@ -1,0 +1,90 @@
+:root {
+    --color-primary: #006fff;
+    --color-body-bg: #172431;
+    --color-body-fg: #a8c2e3;
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--color-body-bg);
+    color: var(--color-body-fg);
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: var(--color-primary);
+    padding: 1rem 2rem;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    flex: 1;
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #fff;
+}
+
+main {
+    padding: 2rem 2rem 0.5rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Inconsolata', monospace;
+}
+
+thead th {
+    text-align: left;
+    padding: 0.3rem 1rem;
+    color: #487ec4;
+}
+
+th, td {
+    border: 1px solid #2b4467;
+    text-align: left; 
+    vertical-align: top;
+}
+
+th, td td  {
+    padding: .5rem 1rem;
+}
+
+td table {
+    border-style: hidden;
+}
+
+th small {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+th {
+    position: relative;
+}
+
+th[data-type]:after {
+    content: attr(data-type);
+    display: inline-block;
+    font-size: 0.8em;
+    position: absolute;
+    top: 0.8em;
+    right: 1em;
+    width: 4em;
+    text-align: right;
+    color: rgba(168, 194, 227, 0.5);
+}

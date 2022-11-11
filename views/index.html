@@ -1,0 +1,31 @@
+{{ define "title"}}Showme{{ end }}
+
+{{ define "main" }}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range .Params }}
+            <tr>
+                <th data-type="{{ .Type }}">{{ .Name }}</th>
+                    <td>
+                    <table>
+                        {{ range .Value }} 
+                            <tr>
+                                <td>{{ . }}</td>
+                            </tr>
+                        {{ end }}
+                    </table>
+                </td>
+            </tr>    
+            {{ end }}
+
+        </tbody>
+    </table>
+    <p>{{ .Hash }}</p>
+{{ end }}
+    
