@@ -1,31 +1,49 @@
-{{ define "title"}}Showme{{ end }}
-
-{{ define "main" }}
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{ range .Params }}
-            <tr>
-                <th data-type="{{ .Type }}">{{ .Name }}</th>
-                    <td>
-                    <table>
-                        {{ range .Value }} 
-                            <tr>
-                                <td>{{ . }}</td>
-                            </tr>
-                        {{ end }}
-                    </table>
-                </td>
-            </tr>    
-            {{ end }}
-
-        </tbody>
-    </table>
-    <p>{{ .Hash }}</p>
-{{ end }}
-    
+<div class="page page--home">
+	<h1>Showme</h1>
+	
+	<p>Direct a form submission here to inspect it's values e.g.</p>
+	
+	<div class="buttonGroup">
+		<form action="/?query=example" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="basic_field_1" value="Basic field 1">
+			<input type="hidden" name="basic_field_2" value="Basic field 2">
+			<input type="hidden" name="array_field[]" value="Array field 1">
+			<input type="hidden" name="array_field[]" value="Array field 2">
+			<input type="hidden" name="duplicate_field" value="Duplicate field 1">
+			<input type="hidden" name="duplicate_field" value="Duplicate field 2">
+			<input type="hidden" name="field.with.dot" value="Field with dot">
+			<input type="hidden" name="field-with-dash" value="Field with dash">
+			<input type="hidden" name="field&amp;with&amp;ampersand" value="Field with ampersand">
+			<input type="hidden" name="field_with_&quot;quotemark&quot;" value="Field with quotemark">
+			<button class="button" type="submit">Example POST</button>
+		</form>
+		<form action="/" method="get">
+			<input type="hidden" name="basic_field_1" value="Basic field 1">
+			<input type="hidden" name="basic_field_2" value="Basic field 2">
+			<input type="hidden" name="array_field[]" value="Array field 1">
+			<input type="hidden" name="array_field[]" value="Array field 2">
+			<input type="hidden" name="duplicate_field" value="Duplicate field 1">
+			<input type="hidden" name="duplicate_field" value="Duplicate field 2">
+			<input type="hidden" name="field.with.dot" value="Field with dot">
+			<input type="hidden" name="field-with-dash" value="Field with dash">
+			<input type="hidden" name="field&amp;with&amp;ampersand" value="Field with ampersand">
+			<input type="hidden" name="field_with_&quot;quotemark&quot;" value="Field with quotemark">
+			<button class="button" type="submit">Example GET</button>
+		</form>
+	</div>
+	
+	<p>Use these bookmarklets to redirect form submissions here:</p>
+	
+	<div class="buttonGroup">
+		<a class="button button--secondary" href="javascript:{{ .FormJS }}">Showme Form</a>
+		<a class="button button--secondary" href="javascript:{{ .GetJS }}">Showme GET</a>
+	</div>
+	
+	<p>To add them just drag them to your bookmarks bar</p>
+	
+	<p>
+		<a href="https://github.com/aurer/showme" target="_blank">
+			<img src="/assets/github.svg" width="30" height="30" />
+		</a>
+	</p>
+</div>
