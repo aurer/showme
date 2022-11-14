@@ -1,0 +1,169 @@
+:root {
+    --color-primary: #006fff;
+    --color-primary-light: #2784ff;
+    --color-body-bg: #172431;
+    --color-body-fg: #a8c2e3;
+    --color-body-fg-light: #bcd1eb;
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--color-body-bg);
+    color: var(--color-body-fg);
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: var(--color-primary);
+    padding: 1rem 2rem;
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    position: relative;
+}
+
+h1, .h1 {
+    flex: 1;
+    margin: 0;
+    font-family: Ubuntu, sans-serif;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #fff;
+}
+
+main {
+    padding: 2rem 2rem 0.5rem;
+}
+
+footer {
+    font-size: 0.8em;
+    padding: .6rem 0;
+    text-align: right;
+    color: rgba(168, 194, 227, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    column-gap: .5rem;
+}
+
+footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+footer a:not(:first-child):before {
+    content: "\2022";
+    margin-right: .5rem;
+    
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: 'Inconsolata', monospace;
+}
+
+thead th {
+    text-align: left;
+    padding: 0.3rem 1rem;
+    color: #487ec4;
+}
+
+th, td {
+    border: 1px solid #2b4467;
+    text-align: left; 
+    vertical-align: top;
+}
+
+th, td td  {
+    padding: .5rem 1rem;
+}
+
+td table {
+    border-style: hidden;
+}
+
+th small {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+th {
+    position: relative;
+}
+
+th[data-type]:after {
+    content: attr(data-type);
+    display: inline-block;
+    font-size: 0.8em;
+    position: absolute;
+    top: 0.8em;
+    right: 1em;
+    width: 4em;
+    text-align: right;
+    color: rgba(168, 194, 227, 0.5);
+}
+
+.page {
+    max-width: 80ch;
+    margin: 1rem auto;
+}
+
+.page--centered {
+    text-align: center;
+}
+
+.page--home {
+    margin: auto;
+    margin-top: 20vmin;
+    text-align: center;
+}
+
+.page--home h1 {
+    font-size: 2.5em;
+    margin: 0 0 0.8rem;
+    color: var(--color-primary);
+}
+
+button, .button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    color: #fff;
+    text-align: center;
+    min-width: 8rem;
+    text-decoration: none;
+    font-size: .9em;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.button--secondary {
+    background-color: var(--color-body-fg);
+    color: var(--color-body-bg);
+}
+
+button:hover, .button:hover {
+    background-color: var(--color-primary-light);
+}
+
+.button--secondary:hover {
+    background-color: var(--color-body-fg-light);
+}
+
+.buttonGroup {
+    display: flex;
+    margin-left: -1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    gap: 1rem;
+}

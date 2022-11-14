@@ -7,7 +7,7 @@ function make(f) {
 	if (f.getAttribute('data-prev-action') == null) {
 		var querystring = f.getAttribute('action').split('?')[1];
 		f.setAttribute('data-prev-action', f.action);
-		f.action='https://showme.aurer.co.uk' + (querystring ? '?' + querystring : '');
+		f.action='https://showme.aurer.dev' + (querystring ? '?' + querystring : '');
 		f.target = '_blank';
 		f.style.outline = '1px solid #75d5ff';
 		f.style.boxShadow = ' 0 0 15px 4px #1BA5E0';

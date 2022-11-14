@@ -1,0 +1,25 @@
+version: '2.9'
+
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASS:-PostGres}
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    
+  app:
+    build: .
+    environment:
+      DB_HOST: db
+      DB_PASS: ${DB_PASS:-PostGres}
+      PORT: ${PORT:-3000}
+    ports:
+      - ${PORT:-3000}:${PORT:-3000}
+    depends_on:
+      - db
+
+volumes:
+    pg-data:

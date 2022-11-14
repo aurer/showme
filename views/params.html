@@ -1,0 +1,33 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range .Params }}
+        <tr>
+            <th data-type="{{ .Type }}">{{ .Name }}</th>
+                <td>
+                <table>
+                    {{ range .Value }} 
+                        <tr>
+                            <td>{{ . }}</td>
+                        </tr>
+                    {{ end }}
+                </table>
+            </td>
+        </tr>    
+        {{ end }}
+    </tbody>
+</table>
+<footer>
+    {{ if .CreatedAt }}
+        <span title="The date this request was created">{{ .CreatedAt }}</span>
+    {{ else }}
+        <a title="Link to this request" href="{{ .Hash }}">Permalink</a>
+    {{ end }}
+    <a href="https://philmaurer.dev" target="_blank">&copy;Phil Maurer 2022</a>
+    <a href="https://github.com/aurer/showme-express" target="_blank">Github</a>
+</footer>
