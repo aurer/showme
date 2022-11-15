@@ -61,8 +61,10 @@ func Root(c *fiber.Ctx) error {
 		return c.Render("index", fiber.Map{"FormJS": template.JSStr(FormJS), "GetJS": template.JSStr(GetJS)}, "layouts/plain")
 	}
 
+	params.Referer = string(c.Request().Header.Referer())
+	params.SubmitPath = params.GetSubmitPath()
+	
 	params.Sort()
-
 	RecordRequest(c, *params)
 	
 	return c.Render("params", params)
