@@ -4,6 +4,7 @@
     --color-body-bg: #172431;
     --color-body-fg: #a8c2e3;
     --color-body-fg-light: #bcd1eb;
+    --color-body-fg-dark: #607b9d;
     color-scheme: dark;
 }
 
@@ -112,6 +113,10 @@ th[data-type]:after {
     color: rgba(168, 194, 227, 0.5);
 }
 
+td {
+    word-break: break-all;
+}
+
 .page {
     max-width: 80ch;
     margin: 1rem auto;
@@ -166,4 +171,15 @@ button:hover, .button:hover {
     margin-bottom: 2rem;
     justify-content: center;
     gap: 1rem;
+}
+
+
+.formInfo th, 
+.formInfo td {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--color-body-fg-dark);
+}
+
+.formInfo td {
+    padding: 0.5rem 1rem;
 }

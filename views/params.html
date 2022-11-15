@@ -20,6 +20,18 @@
             </td>
         </tr>    
         {{ end }}
+        {{ if .SubmitPath }}
+            <tr class="formInfo">
+                <th>Action</th>
+                <td>{{ .SubmitPath }}</td>
+            </tr>
+        {{ end }}
+        {{ if .Referer }}
+            <tr class="formInfo">
+                <th>Referer</strong> 
+                <td>{{ .Referer }}</td>
+            </tr>
+        {{ end }}
     </tbody>
 </table>
 <footer>
